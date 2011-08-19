@@ -7,16 +7,19 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
-  attr_accessible :login, :realname, :username
+  attr_accessible :login, :realname, :username, :credit, :money
   
   attr_accessor :login
   
   has_many :questions
   has_many :answers
   
-  before_create :create_login
-
+  has_many :money_transactions
+  has_many :credit_transactions  
+  has_many :credit_prizes, :class_name => "CreditTransaction", :foreign_key => "winner_id"
+  has_many :money_prizes, :class_name => "MoneyTransaction", :foreign_key => "winner_id"
   
+  before_create :create_login
   
   protected
 

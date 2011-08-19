@@ -6,6 +6,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.database_authenticatable :null => false
       t.integer :questions_count, :default => 0
       t.integer :answers_count, :default => 0
+      t.integer :credit, :default => 0
+      t.decimal :money, :precision => 8, :scale => 2, :default => 0
       t.recoverable
       t.rememberable
       t.trackable

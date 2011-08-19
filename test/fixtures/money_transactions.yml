@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  winner: 
+  question: 
+  answer: 
+  trade_type: 1
+  trade_status: 1
+
+two:
+  user: 
+  winner: 
+  question: 
+  answer: 
+  trade_type: 1
+  trade_status: 1

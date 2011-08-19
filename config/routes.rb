@@ -1,6 +1,10 @@
 Thunderbolt::Application.routes.draw do
   resources :questions do
-    resources :answers
+    resources :answers do
+      member do
+        get 'accept'
+      end
+    end
   end
 
   devise_for :users

@@ -43,6 +43,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
+        @question.not_free? and @question.deduct_credit and @question.deduct_money and @question.order_credit and @question.order_money
         format.html { redirect_to @question, :notice => 'Question was successfully created.' }
         format.json { render :json => @question, :status => :created, :location => @question }
       else
