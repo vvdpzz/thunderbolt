@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @question.user.realname %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @question.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @question.content %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%= @question.credit %>
+</p>
+
+<p>
+  <b>Money:</b>
+  <%= @question.money %>
+</p>
+
+<p>
+  <b>Expire time:</b>
+  <%= @question.expire_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
+
+<%= form_for([@question, Answer.new], :remote => true) do |f| %>
+  <%= f.hidden_field :question_id, :value => @question.id %>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

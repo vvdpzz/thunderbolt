@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  title: MyString
+  content: MyText
+  credit: 1
+  money: 1.5
+  expire_time: 2011-08-19 09:02:28
+
+two:
+  user: 
+  title: MyString
+  content: MyText
+  credit: 1
+  money: 1.5
+  expire_time: 2011-08-19 09:02:28
