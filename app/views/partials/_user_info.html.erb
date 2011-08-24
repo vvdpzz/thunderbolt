@@ -1,0 +1,8 @@
+<div class="user-info clearfix">
+	<div class="user-gravatar32"><%= image_tag user.gravatar_url(:size => 32) %></div>
+	<div class="user-details">
+		<%= link_to user.realname, "/users/#{user.id}", :class => 'username-link' %><br>
+		<div class="credit-score"><%= user.credit %></div>
+	</div>
+	<div class="user-aboutme"><%= user.aboutme %></div>
+</div>

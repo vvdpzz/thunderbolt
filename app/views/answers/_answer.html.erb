@@ -1,0 +1,11 @@
+<%= div_for(answer, :class => 'clearfix') do %>
+	<div class="span-left">
+		<%= up_voted(answer, current_user.id) %>
+	    <span class="vote-count-post" id="answer_<%= answer.id %>_vote"><%= answer.votes_count %></span>
+		<%= down_voted(answer, current_user.id) %>
+	</div>
+	<div class="span11 columns">
+		<div class="post"><%= safe_html answer.content %></div>
+		<%= render '/partials/user_info', :user => answer.user %>			
+	</div>
+<% end %>

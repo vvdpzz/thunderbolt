@@ -1,0 +1,35 @@
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .comment-flag, .flag-off, .vote-accepted-off, .vote-accepted-on {
+	text-indent: -9999em;
+	font-size: 1px;
+}
+.vote-up-off, .vote-down-off, .vote-accepted-off, .star-off, .comment-up-off, .flag-off {
+	cursor: pointer;
+}
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off {
+	background-position: 0px -265px;
+	display: block;
+	margin: 0 auto;
+	width: 40px;
+	height: 25px;
+}
+.vote-down-off {
+	background-position: 0px -300px;
+}
+.vote-up-on {
+background-position: 0px -230px;
+}
+.vote-down-on {
+background-position: 0px -330px;
+}
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on{
+	background-image: url(/assets/sprites.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
+.vote-count-post {
+	display: block;
+	font-size: 280%;
+	line-height:1;
+	text-align: center;
+}

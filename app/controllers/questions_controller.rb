@@ -18,11 +18,11 @@ class QuestionsController < ApplicationController
   end
   
   def free
-    Question.free
+    @questions = Question.free
   end
   
   def paid
-    Question.paid
+    @questions = Question.paid
   end
 
   def new

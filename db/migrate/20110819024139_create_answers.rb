@@ -5,6 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.references :question, :null => false
       t.text :content, :null => false
       t.boolean :is_correct, :default => false
+      t.integer :votes_count, :default => 0
 
       t.timestamps
     end

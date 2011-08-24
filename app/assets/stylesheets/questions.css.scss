@@ -1,3 +1,201 @@
-// Place all the styles related to the questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$line_gray: #EBEBEB;
+$text_gray: #999;
+
+#masthead{
+	margin-top: 60px;
+}
+.h-large{
+	height:14em;
+}
+#questions{
+	.question{
+//		padding:16px 0 15px;
+//		border-bottom:1px solid $line_gray;
+		border-bottom: 1px solid #CCDCEF;
+		padding: 10px 0;
+	}
+	.status{
+		border: 1px dashed #CCDCEF;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-o-border-radius: 5px;
+		border-radius: 5px;
+		width:128px;
+	}
+}
+.question{
+	.summary{
+		margin-left:140px;
+		.excerpt{
+			min-height:42px;
+		}
+		h5{
+			font-weight:normal;
+			line-height:21px;
+		}
+		.timestamp{
+			color: #5F88CE;
+			font-size:12px;
+		}
+	}
+}
+.status{
+	float:left;
+	color: $text_gray;
+	.square{
+		float:left;
+		font-size:13px;
+		height:60px;
+		width:60px;
+		text-align:center;
+	}
+	.money{
+		
+	}
+	.credit{
+		margin-left:8px;
+	}
+	.count{
+		font-size:24px;
+		line-height:30px;
+		padding-top: 5px;
+	}
+}
+.row .span12 .span11{
+	margin-left:0;
+}
+.span-left{
+	float:left;
+	width:60px;
+}
+.title{
+	line-height:24px;
+	padding-bottom:8px;
+}
+.post{
+	font-size:14px;
+	line-height:1.6;
+}
+#ask-question{
+	width: 180px;
+	height:46px;
+	line-height:46px;
+	color:white;
+	font-size:30px;
+	margin-left:20px;
+	margin-top:15px;
+}
+a.buttonLink{
+	border: 1px solid #EDA42E;
+	text-shadow: 0 -1px 0 #EDA42E;
+	background: #FEC965;
+	background: -moz-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FEC965),color-stop(100%,#FEBC3E));
+	background: -webkit-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+	background: -o-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+	background: -ms-linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEC965',endColorstr='#FEBC3E',GradientType=0);
+	background: linear-gradient(top,#FEC965 0,#FEBC3E 100%);
+	display: inline-block;
+	text-decoration:none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 3px 5px 4px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.user-info{
+	padding:8px 0px;
+	.user-gravatar32 {
+		float: left;
+		width: 32px;
+		height: 32px;
+	}
+	.user-details {
+		float: left;
+		margin-left: 8px;
+	}
+	.user-aboutme{
+		margin-left:90px;
+	}
+	.credit-score {
+		font-weight: bold;
+		color: #444;
+		font-size: 14px;
+		line-height:1;
+	}
+}
+.green{
+	background: #8AB923;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ADDA4D',endColorstr='#86B846');
+	background: -webkit-gradient(linear,0 0,0 100%,from(#ADDA4D),to(#86B846));
+	background: -moz-linear-gradient(top,#ADDA4D,#86B846);
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+	-o-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,0 1px 0 rgba(0, 0, 0, .2);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+	border: 1px solid #6D8F29;
+	color: #3E5E00!important;
+	min-width: 56px;
+	width: auto!important;
+	_width: 56px;
+	
+	font: normal 14px/22px "Helvetica Neue",Arial,sans-serif;
+	text-decoration: none!important;
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+	padding: 4px 10px;
+	cursor: pointer;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+.mr10{
+	margin-right:10px;
+}
+.ml20{
+	margin-left:20px;
+}
+.mr20{
+	margin-right:20px;
+}
+.margin-auto{
+	margin:0 auto;
+	width:128px;
+	float:none;
+}
+.fr{
+	float:right;
+}
+.operations{
+	padding-bottom:20px;
+}
+.reward-info, .operations{
+	border-bottom:1px solid #ebebeb;
+	margin-bottom:20px;
+}
+.editor{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  min-height:10em;
+  overflow-y:auto;
+  display:block;margin:0;padding:4px;font-size:13px;line-height:18px;color:#808080;border:1px solid #ccc;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;
+  -webkit-transition:border linear 0.2s,box-shadow linear 0.2s;-moz-transition:border linear 0.2s,box-shadow linear 0.2s;transition:border linear 0.2s,box-shadow linear 0.2s;-webkit-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.1);box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.editor:focus{
+  outline:none;border-color:rgba(82, 168, 236, 0.8);-webkit-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.1),0 0 8px rgba(82, 168, 236, 0.6);-moz-box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.1),0 0 8px rgba(82, 168, 236, 0.6);box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.1),0 0 8px rgba(82, 168, 236, 0.6);
+}
+.span12-large {
+  width: 700px;
+}
+.editor_toolbar{
+  padding:8px 0;
+  a{
+    margin-right:8px;
+  }
+}

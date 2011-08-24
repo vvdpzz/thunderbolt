@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rake', '0.8.7'
 gem 'rails', '3.1.0.rc6'
 
+gem 'SystemTimer'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -11,6 +13,10 @@ gem 'mysql2'
 gem 'json'
 gem 'devise'
 gem 'enumerate_it'
+
+gem 'redis'
+
+gem 'gravtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.

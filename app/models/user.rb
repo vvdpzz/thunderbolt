@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   
   attr_accessor :login
   
+  include Gravtastic
+  gravtastic
+  
   has_many :questions
   has_many :answers
   

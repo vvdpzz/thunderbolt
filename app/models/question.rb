@@ -61,5 +61,9 @@ class Question < ActiveRecord::Base
       return order.save
     end
   end
+  
+  def was_not_answered_by?(user_id)
+    self.answers.select('user_id').where(:user_id => user_id).empty?
+  end
 
 end

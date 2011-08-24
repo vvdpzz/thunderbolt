@@ -1,0 +1,2 @@
+$('#create-answer').html('<div class="answered-message">一个问题你只能回答一次，但你可以对现有的回答进行修改</div>');
+$('#answers').append("<%= escape_javascript(render 'answer', :answer => @answer) %>");

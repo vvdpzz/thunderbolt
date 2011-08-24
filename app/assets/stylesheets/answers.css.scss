@@ -1,3 +1,44 @@
-// Place all the styles related to the answers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.subheader {
+	border-bottom: 1px solid #666;
+	height: 34px;
+	clear: both;
+	margin-bottom: 15px;
+}
+#answers{
+	padding-top:29px;
+	#answers-header {
+		margin:20px 0;
+	}
+	.subheader {
+		margin-bottom: -10px;
+	}
+	.answer{
+		padding:20px 0 19px;
+		border-bottom:1px solid #EBEBEB;
+	}
+}
+.answered-message{
+	background-color:#eee;
+	padding:10px 20px;
+	margin:20px 0;
+	text-align:center;
+}
+.h-answer{
+	height:10em;
+}
+.border-box{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+form textarea.span12-large{
+	width:700px;
+}
+.answer-title{
+	font-weight:normal;
+	padding-top:20px;
+}
+.space{
+	padding-bottom:10px;
+}

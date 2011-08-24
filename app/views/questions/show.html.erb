@@ -1,46 +1,105 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="span12 columns">
+		<%= div_for(@question, :class => 'clearfix') do %>
+			<div class="span-left">
+				<%= up_voted(@question, current_user.id) %>
+			    <span class="vote-count-post" id="question_<%= @question.id %>_vote"><%= @question.votes_count %></span>
+				<%= down_voted(@question, current_user.id) %>
+			</div>
+			<div class="span11 columns">
+				<h4 class="title"><%= @question.title %></h4>
+				<div class="post"><%= safe_html @question.content %></div>
+				<%= render '/partials/user_info', :user => @question.user %>			
+			</div>
+		<% end %>
+		<div id="answers">
+			<div id="answers-header">
+				<div class="subheader answers-subheader">
+					<% if @question.answers_count > 0 %>
+						<h2><%= @question.answers_count %> 个答案</h2>
+					<% end %>
+				</div>
+			</div>
+			<%= render @question.answers %>
+		</div>
+		<div id="create-answer">
+			<% if @question.was_not_answered_by? current_user.id %>
+				<h3 class="answer-title">添加答案</h3>
+				<div class="space"><%= render '/partials/user_info', :user => current_user %></div>
+				<%= form_for([@question, Answer.new], :remote => true) do |f| %>
+				  <%= f.hidden_field :question_id, :value => @question.id %>
+					<div class="clearfix">
+						<%= f.text_area :content, :class => 'span12-large border-box' %>
+					</div>
+					<%= f.submit '提交', :class => "btn primary" %>
+				<% end %>
+			<% else %>
+				<div class="answered-message">一个问题你只能回答一次，但你可以对现有的回答进行修改</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="span4">
+		<% if @question.not_free? %>
+		<div class="reward-info clearfix">
+			<h4>已悬赏</h4>
+			<div class="status">
+				<div class="money square"><div class="count"><%= @question.money.to_i %></div>元</div>
+				<div class="credit square"><div class="count"><%= @question.credit %></div>积分</div>
+			</div>
+		</div>
+		<% end %>
+		<div class="operations clearfix">
+			<a class="green ml20" href="">关注</a>
+			<a class="green ml20" href="">收藏</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+$.fn.enable = function(b) {
+	if (b === undefined) {
+		b = true;
+	}
+	return this.each(function() {
+		this.disabled = !b;
+	});
+};
+$(document).ready(function() {
+	var editor = WysiHat.Editor.attach($('#answer_content'));
+	var toolbar = new WysiHat.Toolbar(editor);
+	toolbar.initialize(editor);
+	$('.editor').addClass('h-answer border-box');	
 
-<p>
-  <b>User:</b>
-  <%= @question.user.realname %>
-</p>
+	toolbar.addButton({ name: 'bold', label: "Strong" });
 
-<p>
-  <b>Title:</b>
-  <%= @question.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @question.content %>
-</p>
-
-<p>
-  <b>Credit:</b>
-  <%= @question.credit %>
-</p>
-
-<p>
-  <b>Money:</b>
-  <%= @question.money %>
-</p>
-
-<p>
-  <b>Expire time:</b>
-  <%= @question.expire_time %>
-</p>
-
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
-
-<%= form_for([@question, Answer.new], :remote => true) do |f| %>
-  <%= f.hidden_field :question_id, :value => @question.id %>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	toolbar.addButton({
+		name: 'em',
+		label: "Emphasis",
+		handler: function(editor) { editor.italicSelection(); },
+		query: function(editor) { return editor.italicSelected(); }
+	});
+	
+	toolbar.addButton({ label: "Underline" });
+	
+	toolbar.addButton({
+		label: "OL",
+		handler: function(editor) { return editor.toggleOrderedList(); }
+	});
+	
+	toolbar.addButton({
+		label: "UL",
+		handler: function(editor) { return editor.toggleUnorderedList(); }
+	});
+	
+	toolbar.addButton({
+		label: "Link",
+		handler: function(editor) { return editor.promptLinkSelection(); }
+	});
+	
+	$('#new_answer').submit(function(){
+		$('#answer_content').html(editor.html());
+		var value = $(this).serialize();
+		$.post($(this).attr('action'), value);
+		return false;
+	});
+});
+</script>

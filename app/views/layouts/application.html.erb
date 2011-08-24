@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Thunderbolt</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Thunderbolt</title>
+	<%= stylesheet_link_tag    "application" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="topbar">
+		<div class="container fixed">
+			<h3><a class="logo" href=""> 略晓生活</a></h3>
+			<ul>
+				<li class="active"><a href="/questions">问题</a></li>
+				<li><a href="/activity">最新动态</a></li>
+				<li><a href="/inbox">收件箱</a></li>
+				<li><a href="">个人主页</a></li>
+			</ul>
+			<form action="">
+				<input type="text" placeholder="搜索">
+			</form>
+			<ul class="nav secondary-nav">
+				<li class="menu">
+					<a href="" class="menu">帐户</a>
+					<ul class="menu-dropdown">
+						<li><a href="">Secondary link</a></li>
+						<li><a href="">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="">Another link</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="masthead"></div>
+	<div class="container">
+		<%= yield %>
+	</div>
 </body>
 </html>

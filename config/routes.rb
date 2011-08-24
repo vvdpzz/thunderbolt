@@ -1,13 +1,37 @@
 Thunderbolt::Application.routes.draw do
+  
+  match '/paid' => 'questions#paid', :via => 'get', :as => :paid_questions
+  match '/free' => 'questions#free', :via => 'get', :as => :free_questions
+  
+  match '/inbox' => 'inbox#notification'
+  match '/notification' => 'inbox#notification'
+  match '/pm' => 'inbox#pm'
+  
   resources :questions do
     resources :answers do
       member do
         get 'accept'
       end
+      resources :votes, :only => [] do
+        collection do
+          get 'up'
+          get 'down'
+        end
+      end
+    end
+    resources :votes, :only => [] do
+      collection do
+        get 'up'
+        get 'down'
+      end
     end
   end
 
   devise_for :users
+  
+  resources :users, :only => [:show]
+  
+  resources :activity, :only => [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
