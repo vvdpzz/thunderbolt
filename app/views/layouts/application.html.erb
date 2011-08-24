@@ -10,12 +10,12 @@
 	<div class="topbar">
 		<div class="container fixed">
 			<h3><a class="logo" href=""> 略晓生活</a></h3>
-			<ul>
-				<li class="active"><a href="/questions">问题</a></li>
-				<li><a href="/activity">最新动态</a></li>
-				<li><a href="/inbox">收件箱</a></li>
-				<li><a href="">个人主页</a></li>
-			</ul>
+			<%= tabs_tag :builder => SegmentTabBuilder do |tab| %>
+			  <%= tab.questions	'问题',	'/questions' %>
+			  <%= tab.activity	'最新动态', '/activity' %>
+			  <%= tab.inbox		'收件箱',  '/inbox' %>
+			  <%= tab.profile	'个人主页', current_user %>
+			<% end %>
 			<form action="">
 				<input type="text" placeholder="搜索">
 			</form>

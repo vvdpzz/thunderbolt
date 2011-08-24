@@ -1,0 +1,5 @@
+<%= tabs_tag :namespace => :segment, :builder => SegmentTabBuilder, :open_tabs => { :class => "tabs" } do |tab| %>
+	<%= tab.paid	'付费', '/' %>
+	<%= tab.free	'免费', '/free' %>
+	<%= tab.watch	'关注', '/watch' %>
+<% end %>

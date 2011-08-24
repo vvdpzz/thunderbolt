@@ -1,10 +1,6 @@
-<ul class="tabs">
-	<li><a href="/paid">付费</a></li>
-	<li class="active"><a href="/free">免费</a></li>
-	<li><a href="#">关注</a></li>
-</ul>
+<%= render 'tabs' %>
 <div class="row">
-	<div class="span12 columns">
+	<div class="span12">
 		<div id="questions">
 			<% @questions.each do |question| %>
 				<%= div_for(question, :class => 'clearfix') do %>
@@ -22,7 +18,7 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="span4 columns">
+	<div class="span4">
 		<%= link_to '提 问', new_question_path, :class => 'buttonLink', :id => 'ask-question' %>
 	</div>
 </div>

@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   has_many :credit_prizes, :class_name => "CreditTransaction", :foreign_key => "winner_id"
   has_many :money_prizes, :class_name => "MoneyTransaction", :foreign_key => "winner_id"
   
+  has_many :favorite_questions
+  has_many :followed_questions
+  
   before_create :create_login
   
   protected

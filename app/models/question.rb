@@ -3,6 +3,9 @@ class Question < ActiveRecord::Base
   
   has_many :answers, :dependent => :destroy
   
+  has_many :favorite_questions
+  has_many :followed_questions
+  
   scope :free, lambda { where(["credit = 0 AND money = 0.00"]) }
   scope :paid, lambda { where(["credit <> 0 OR money <> 0.00"])}
   scope :latest, order("created_at DESC")

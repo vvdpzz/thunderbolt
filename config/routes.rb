@@ -1,7 +1,7 @@
 Thunderbolt::Application.routes.draw do
   
-  match '/paid' => 'questions#paid', :via => 'get', :as => :paid_questions
   match '/free' => 'questions#free', :via => 'get', :as => :free_questions
+  match '/watch' => 'questions#watch', :via => 'get', :as => :watch_questions
   
   match '/inbox' => 'inbox#notification'
   match '/notification' => 'inbox#notification'
@@ -24,6 +24,10 @@ Thunderbolt::Application.routes.draw do
         get 'up'
         get 'down'
       end
+    end
+    member do
+      get 'follow'
+      get 'favorite'
     end
   end
 

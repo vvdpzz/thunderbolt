@@ -1,5 +1,7 @@
 class ActivityController < ApplicationController
-  def index
-    
+  set_tab :activity
+  
+  def index    
   end
+  
 end
