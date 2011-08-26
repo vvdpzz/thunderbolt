@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   set_tab :watch, :segment, :only => %w(watch)
   
   def index
-    @questions = Question.paid.page(params[:page]).per(3)
+    @questions = Question.paid.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html

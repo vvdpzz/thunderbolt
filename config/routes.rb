@@ -33,7 +33,11 @@ Thunderbolt::Application.routes.draw do
 
   devise_for :users
   
-  resources :users, :only => [:show]
+  resources :users, :only => [:show] do
+    member do
+      get 'follow'
+    end
+  end
   
   resources :activity, :only => [:index]
 
