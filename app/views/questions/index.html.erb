@@ -17,6 +17,7 @@
 				<% end %>
 			<% end %>
 		</div>
+		<%= paginate @questions %>
 	</div>
 	<div class="span4">
 		<%= link_to '提 问', new_question_path, :class => 'buttonLink', :id => 'ask-question' %>

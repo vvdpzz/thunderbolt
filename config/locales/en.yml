@@ -10,6 +10,11 @@
   unfollow: "关注"
   favorited: "取消收藏"
   unfavorite: "收藏"
+  views:
+    pagination:
+      previous: "&lt; 上一页"
+      next: "下一页 &gt;"
+      truncate: "..."
   date:
     formats:
       default: "%Y-%m-%d"
