@@ -8,28 +8,30 @@
 </head>
 <body>
 	<div class="topbar">
-		<div class="container fixed">
-			<h3><a class="logo" href=""> 略晓生活</a></h3>
-			<%= tabs_tag :builder => SegmentTabBuilder do |tab| %>
-			  <%= tab.questions	'问题',	'/questions' %>
-			  <%= tab.activity	'最新动态', '/activity' %>
-			  <%= tab.inbox		'收件箱',  '/inbox' %>
-			  <%= tab.profile	'个人主页', current_user %>
-			<% end %>
-			<form action="">
-				<input type="text" placeholder="搜索">
-			</form>
-			<ul class="nav secondary-nav">
-				<li class="menu">
-					<a href="" class="menu">帐户</a>
-					<ul class="menu-dropdown">
-						<li><a href="">Secondary link</a></li>
-						<li><a href="">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="">Another link</a></li>
-					</ul>
-				</li>
-			</ul>
+		<div class="fill">
+			<div class="container fixed">
+				<h3><a class="logo" href=""> 略晓生活</a></h3>
+				<%= tabs_tag :builder => SegmentTabBuilder do |tab| %>
+				  <%= tab.questions	'问题',	'/questions' %>
+				  <%= tab.activity	'最新动态', '/activity' %>
+				  <%= tab.inbox		'收件箱',  '/inbox' %>
+				  <%= tab.profile	'个人主页', current_user %>
+				<% end %>
+				<form action="">
+					<input type="text" placeholder="搜索">
+				</form>
+				<ul class="nav secondary-nav">
+					<li class="menu">
+						<a href="" class="menu">帐户</a>
+						<ul class="menu-dropdown">
+							<li><a href="">Secondary link</a></li>
+							<li><a href="">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="">Another link</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div id="masthead"></div>
