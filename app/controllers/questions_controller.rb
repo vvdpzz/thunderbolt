@@ -81,27 +81,31 @@ class QuestionsController < ApplicationController
   
   def follow
     question = Question.find params[:id]
+    followed = true
     if question
       records = FollowedQuestion.where(:user_id => current_user.id, :question_id => question.id)
       if records.empty?
         current_user.followed_questions.create(:question_id => question.id)
       else
         record = records.first
-        record.update_attribute(:followed, !record.followed)
+        followed = record.followed if record.update_attribute(:followed, !record.followed)
       end
+      render :json => {:followed => followed}
     end
   end
   
   def favorite
     question = Question.find params[:id]
+    favorited = true
     if question
       records = FavoriteQuestion.where(:user_id => current_user.id, :question_id => question.id)
       if records.empty?
         current_user.favorite_questions.create(:question_id => question.id)
       else
         record = records.first
-        record.update_attribute(:favorite, !record.favorite)
+        favorited = record.favorited if record.update_attribute(:favorited, !record.favorited)
       end
+      render :json => {:favorited => favorited}
     end
   end
 end

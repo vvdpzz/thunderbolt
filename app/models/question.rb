@@ -18,6 +18,24 @@ class Question < ActiveRecord::Base
   
   validate :enough_credit_to_pay
   validate :enough_money_to_pay
+  
+  def followed_by?(user_id)
+    records = FollowedQuestion.where(:user_id => user_id, :question_id => self.id)
+    if records.empty?
+      return false
+    else
+      return records.first.followed
+    end
+  end
+  
+  def favorited_by?(user_id)
+    records = FavoriteQuestion.where(:user_id => user_id, :question_id => self.id)
+    if records.empty?
+      return false
+    else
+      return records.first.favorited
+    end
+  end
 
   def enough_credit_to_pay
     errors.add(:credit, "you do not have enough credit to pay.") if self.user.credit < self.credit

@@ -6,6 +6,10 @@
 # Use this as the base for the locale file of your language.
 
 "en":
+  followed: "取消关注"
+  unfollow: "关注"
+  favorited: "取消收藏"
+  unfavorite: "收藏"
   date:
     formats:
       default: "%Y-%m-%d"

@@ -3,7 +3,7 @@ class CreateFavoriteQuestions < ActiveRecord::Migration
     create_table :favorite_questions do |t|
       t.references :user
       t.references :question
-      t.boolean :favorite, :default => true
+      t.boolean :favorited, :default => true
 
       t.timestamps
     end

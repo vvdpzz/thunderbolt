@@ -49,20 +49,23 @@
 		</div>
 		<% end %>
 		<div class="operations clearfix">
-			<a class="green ml20" href="">关注</a>
-			<a class="green ml20" href="">收藏</a>
+			<% followed = @question.followed_by?(current_user.id) %>
+			<% btn_color = followed ? "white" : "green" %>
+			<% btn_text = followed ? :followed : :unfollow %>
+			<%= link_to t(btn_text),
+					follow_question_path(@question),
+					:id => "follow-question", :class => "#{btn_color} ml20" %>
+			
+			<% favorited = @question.favorited_by?(current_user.id) %>
+			<% btn_color = favorited ? "white" : "green" %>
+			<% btn_text = favorited ? :favorited : :unfavorite %>
+			<%= link_to t(btn_text),
+					favorite_question_path(@question),
+					:id => "favorite-question", :class => "#{btn_color} ml20" %>
 		</div>
 	</div>
 </div>
 <script type="text/javascript" charset="utf-8">
-$.fn.enable = function(b) {
-	if (b === undefined) {
-		b = true;
-	}
-	return this.each(function() {
-		this.disabled = !b;
-	});
-};
 $(document).ready(function() {
 	var editor = WysiHat.Editor.attach($('#answer_content'));
 	var toolbar = new WysiHat.Toolbar(editor);

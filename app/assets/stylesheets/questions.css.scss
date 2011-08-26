@@ -9,8 +9,6 @@ $text_gray: #999;
 }
 #questions{
 	.question{
-//		padding:16px 0 15px;
-//		border-bottom:1px solid $line_gray;
 		border-bottom: 1px solid #CCDCEF;
 		padding: 10px 0;
 	}
@@ -60,6 +58,9 @@ $text_gray: #999;
 		line-height:30px;
 		padding-top: 5px;
 	}
+}
+.title-height{
+  height:36px;
 }
 .row .span12 .span11{
 	margin-left:0;

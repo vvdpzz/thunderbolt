@@ -3,18 +3,16 @@
 		<%= form_for(@question) do |f| %>
 		<fieldset>
 			<div class="clearfix">
-				<label for="">标题</label>
+				<label for="text_area">标题</label>
 				<div class="input">
-					<%= f.text_field :title, :class => 'xxlarge' %>
+					<%= f.text_area :title, :class => 'xxlarge title-height' %>
+					<span class="help-block">必填，最多70个字</span>
 				</div>
 			</div>
 			<div class="clearfix">
-				<label for="textarea">正文</label>
 				<div class="input">
 					<%= f.text_area :content, :class => 'xxlarge h-large' %>
-					<span class="help-block">
-						Block of help text to describe the field above if need be.
-					</span>
+					<span class="help-block">可选，详细描述你的问题</span>
 				</div>
 			</div>
 			<div class="clearfix">
@@ -26,13 +24,7 @@
 			<div class="clearfix">
 				<label for="">金钱</label>
 				<div class="input">
-					<%= f.text_field :money %>
-				</div>
-			</div>
-			<div class="clearfix">
-				<label for="">时限</label>
-				<div class="input">
-					<%= f.text_field :expire_time %>
+					<%= f.select :money, 11.times.collect{|i| [i, i]}, {}, {:class => 'medium'} %> 元
 				</div>
 			</div>
 			<div class="actions">
