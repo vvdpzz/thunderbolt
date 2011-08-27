@@ -5,21 +5,22 @@ gem 'rails', '3.1.0.rc6'
 
 gem 'SystemTimer'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'mysql2'
 
 gem 'json'
 gem 'devise'
+
+# enumeration
 gem 'enumerate_it'
 
 gem 'redis'
 
 gem 'gravtastic'
 
+# tab view
 gem 'tabs_on_rails'
 
+# pagination
 gem 'kaminari'
 
 # Gems used only for assets and not required
