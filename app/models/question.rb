@@ -3,8 +3,8 @@ class Question < ActiveRecord::Base
   
   has_many :answers, :dependent => :destroy
   
-  has_many :favorite_questions
-  has_many :followed_questions
+  has_many :followers, :class_name => "FollowedQuestion", :foreign_key => "question_id",
+           :conditions => ['followed = ?', true]
   
   scope :free, lambda { where(["credit = 0 AND money = 0.00"]) }
   scope :paid, lambda { where(["credit <> 0 OR money <> 0.00"])}
@@ -83,8 +83,16 @@ class Question < ActiveRecord::Base
     end
   end
   
+  def follow_user_ids
+    FollowedQuestion.select('user_id').where(:question_id => self.id, :followed => 1).collect{ |item| item.user_id }
+  end
+  
   def was_not_answered_by?(user_id)
     self.answers.select('user_id').where(:user_id => user_id).empty?
+  end
+  
+  def async_new_answer(answer_id)
+    Resque.enqueue(NewAnswer, self.id, answer_id)
   end
 
 end

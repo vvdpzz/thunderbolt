@@ -6,6 +6,9 @@
 	}
 	.more-info{
 		margin-left:148px;
+		h1{
+		  margin-bottom: 14px;
+		}
 	}
 	.big-name{
 		font-size:24px;
@@ -22,6 +25,22 @@
 		line-height:1.4;
 		font-weight:bold;
 		font-family:Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+	}
+	.stats{
+	  padding-top:10px;
+	}
+	.block{
+	  float:left;
+	  width:100px;
+	  text-align:center;
+	  border-right:1px solid #ccc;
+	  .count{
+	    font-size:24px;
+	    line-height:32px;
+	  }
+	}
+	.block:last-child{
+	  border-right:none;
 	}
 }
 

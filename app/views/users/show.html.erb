@@ -9,8 +9,11 @@
 				<div class="aboutme">
 					<%= @user.aboutme %>
 				</div>
-				<div class="credit">
-					#<%= @user.credit %>
+				<div class="stats">
+					<div class="block"><div class="count"><%= @user.followers.count %></div>关注我的人</div>
+					<div class="block"><div class="count"><%= @user.following.count %></div>我关注的人</div>
+					<div class="block"><div class="count"><%= @user.questions_count %></div>我提的问题</div>
+					<div class="block"><div class="count"><%= @user.answers_count %></div>我回的答案</div>
 				</div>
 			</div>
 		</div>

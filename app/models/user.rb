@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   before_create :create_login
   
   def async_follow_user(user_id)
-    Resque.enqueue(FollowUser, self.id, user_id, self.realname)
+    Resque.enqueue(FollowUser, user_id, self.id, self.realname)
   end
   
   protected

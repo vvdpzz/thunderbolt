@@ -1,12 +1,8 @@
 class FollowUser
   @queue = :follow_user
 
-  # a follow b
-  def self.perform(a_id, b_id, a_realname)
-    html = "<a href=\"/users/#{a_id}\">#{a_realname}</a> 关注了你。"
-    Notification.create(
-      :user_id => b_id,
-      :content => html
-    )
+  def self.perform(user_id, follower_id, follower_realname)
+    html = "<a href=\"/users/#{follower_id}\">#{follower_realname}</a> 关注了你。"
+    Notification.create(:user_id => user_id, :content => html)
   end
 end
