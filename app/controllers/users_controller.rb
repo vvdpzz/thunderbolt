@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   set_tab :profile
+  
+  set_tab :asked,  :segment, :only => %w(show asked)
 
   def show
     @user = User.find params[:id]
+    @questions = @user.questions.page(params[:page]).per(5)
   end
 
   def follow
@@ -20,6 +23,18 @@ class UsersController < ApplicationController
       render :json => {:followed => followed}
     else
       render :json => {:error => true}, :status => :unprocessable_entity
+    end
+  end
+  
+  def asked
+    user = User.find params[:id]
+    @questions = user.questions if user
+  end
+  
+  def answered
+    user = User.find params[:id]
+    if user
+      @questions = Question.find_by_sql("select * from questions where id in (select question_id from answers where user_id = #{user.id})")
     end
   end
 end

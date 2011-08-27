@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     Resque.enqueue(FollowUser, user_id, self.id, self.realname)
   end
   
+  def correct_answers_count
+    Answer.where(:user_id => self.id, :is_correct => true).count
+  end
+  
   protected
 
   def create_login

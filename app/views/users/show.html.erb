@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="span12 columns">
-		<div class="user-panel">
+		<div class="user-panel clearfix">
 			<div class="big-avatar">
 				<%= image_tag @user.gravatar_url(:size => 128) %>
 			</div>
@@ -14,8 +14,17 @@
 					<div class="block"><div class="count"><%= @user.following.count %></div>我关注的人</div>
 					<div class="block"><div class="count"><%= @user.questions_count %></div>我提的问题</div>
 					<div class="block"><div class="count"><%= @user.answers_count %></div>我回的答案</div>
+					<div class="block"><div class="count"><%= @user.correct_answers_count %></div>胜出的问题</div>
 				</div>
 			</div>
+		</div>
+		<div class="padding40"></div>
+		<ul class="tabs">
+			<li class="active"><a href="/users/<%= @user.id %>/asked">我提的问题</a></li>
+			<li class=""><a href="/users/<%= @user.id %>/answered">我回答的问题</a></li>
+		</ul>
+		<div id="questions">
+			<%= render '/partials/questions', :questions => @questions %>
 		</div>
 	</div>
 	<div class="span4">
