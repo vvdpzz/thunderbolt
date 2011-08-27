@@ -16,6 +16,7 @@ class UsersController < ApplicationController
         record = records.first
         followed = record.followed if record.update_attribute(:followed, !record.followed)
       end
+      current_user.async_follow_user(user.id) if followed
       render :json => {:followed => followed}
     else
       render :json => {:error => true}, :status => :unprocessable_entity
