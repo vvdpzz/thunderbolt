@@ -5,7 +5,7 @@
 				<a class="image" href="/user/<%= @user.id %>"><%= image_tag @user.gravatar_url(:size => 32) %></a>
 			</div>
 			<div class="mail">
-			  <%=form_tag({:controller => 'mail', :action => 'send'}, :id => 'new_mail') do %>
+			  <%=form_tag({:controller => 'mail', :action => 'create'}) do %>
 			  	<%= text_field_tag :title, {}, :class => 'title' %>
 				<br>
 			  	<%= text_area_tag :content, {}, :class => 'content' %>

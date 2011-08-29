@@ -1,7 +1,7 @@
 Thunderbolt::Application.routes.draw do
   
-  match '/mail/to/:id' => 'mail#new'
-  match '/mail' => 'mail#send', :via => 'post'
+  match '/mail/to/:id' => 'mail#new', :via => 'get'
+  match '/mail' => 'mail#create', :via => 'post'
 
   match '/free' => 'questions#free', :via => 'get', :as => :free_questions
   match '/watch' => 'questions#watch', :via => 'get', :as => :watch_questions
