@@ -6,4 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require json2
+//= require amplify.store.js
+//= require history.adapter.jquery.js
+//= require history.js
+//= require history.html4.js
 //= require_tree .
