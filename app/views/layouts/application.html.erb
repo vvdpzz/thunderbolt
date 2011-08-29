@@ -17,9 +17,10 @@
 				  <%= tab.inbox		'收件箱',  '/inbox' %>
 				  <%= tab.profile	'个人主页', current_user %>
 				<% end %>
+				<% if user_signed_in? %>
 				<ul class="nav secondary-nav">
 					<li class="menu">
-						<a href="" class="menu">帐户</a>
+						<a href="" class="menu"><%= current_user.realname %></a>
 						<ul class="menu-dropdown">
 							<li><a href="">Secondary link</a></li>
 							<li><a href="">Something else here</a></li>
@@ -28,6 +29,7 @@
 						</ul>
 					</li>
 				</ul>
+				<% end %>
 			</div>
 		</div>
 	</div>

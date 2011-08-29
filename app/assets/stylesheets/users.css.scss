@@ -37,11 +37,16 @@
 	  .count{
 	    font-size:24px;
 	    line-height:32px;
+	    color:#333;
 	  }
 	}
 	.block:last-child{
 	  border-right:none;
 	}
+}
+
+.padding40{
+  padding-top:40px;
 }
 
 .white {

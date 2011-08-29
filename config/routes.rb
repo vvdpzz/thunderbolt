@@ -39,6 +39,8 @@ Thunderbolt::Application.routes.draw do
   resources :users, :only => [:show] do
     member do
       get 'follow'
+      get 'asked'
+      get 'answered'
     end
   end
   
