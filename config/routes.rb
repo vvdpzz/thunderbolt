@@ -1,8 +1,12 @@
 Thunderbolt::Application.routes.draw do
   
-  match '/mail/to/:id' => 'mail#new', :via => 'get'
-  match '/mail' => 'mail#create', :via => 'post'
-
+  match '/mail/inbox' => 'mail#inbox', :via => 'get' #inbox
+  match '/mail/to/:id' => 'mail#new', :via => 'get' #to write a new mail
+  match '/mail/reply/to/:id' => 'mail#renew', :via => 'get' #to reply a new mail
+  match '/mail/:batch_id' => 'mail#view', :via => 'get' #to view a single batch mail  
+  match '/mailsent' => 'mail#create', :via => 'post' #mail sent
+  match '/mailreplied' => 'mail#reply', :via => 'post' #mai replied
+  
   match '/free' => 'questions#free', :via => 'get', :as => :free_questions
   match '/watch' => 'questions#watch', :via => 'get', :as => :watch_questions
   

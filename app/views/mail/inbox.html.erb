@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="span12 columns">
+		<div class="user-panel">
+			<div class="big-avatar">
+				<a class="image" href="/users/<%= current_user.id %>"><%= image_tag current_user.gravatar_url(:size => 64) %>
+				<br><%= current_user.realname %> 的INBOX</a>
+			</div>
+			<div class="span12">
+				<div id="inbox">
+					<% @mails.each do |mail| %>
+						<% mm = mail.collect{|mail| $redis.ZRANGE("#{mail}",-1,-1)} %>
+						<% mm.first.each do |m| %>
+						  <% m =  JSON.parse m %>
+						  <a class="image" href="/users/<%= m['sender_id'] %>"><%= image_tag m['sender_image'] %></a>
+						  <%= time_ago_in_words m['time'] %>前
+						  <a class="image" href="/mail/<%= @batch_id%>"><%= m['title'] %></a>
+						<br>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

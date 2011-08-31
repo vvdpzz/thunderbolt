@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="span12 columns">
+		<div class="user-panel">
+			<div class="span12">
+				<div id="view">
+					<%= @mail.title %>
+					<% @mails.each do |mail| %>
+						<% mail.each do |mm| %>
+							<% m = JSON.parse mm %>
+								<a class="image" href="/users/<%= m['sender_id'] %>"><%= image_tag m['sender_image'] %></a>
+								<%= time_ago_in_words m['time'] %>前发送的私信
+						  		<%= m['content'] %>
+						<% end %>
+					<% end %>		
+				</div>
+			    <div class="span4">
+					<div class="operations clearfix">
+						<a class="white ml20" href="/mail/reply/to/<%= @mail.id %>">回复</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
