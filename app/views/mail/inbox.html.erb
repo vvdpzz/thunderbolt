@@ -8,12 +8,14 @@
 			<div class="span12">
 				<div id="inbox">
 					<% @mails.each do |mail| %>
+					<%= batch_id = mail.split(".")[3] %>
 						<% mm = mail.collect{|mail| $redis.ZRANGE("#{mail}",-1,-1)} %>
+						
 						<% mm.first.each do |m| %>
 						  <% m =  JSON.parse m %>
 						  <a class="image" href="/users/<%= m['sender_id'] %>"><%= image_tag m['sender_image'] %></a>
 						  <%= time_ago_in_words m['time'] %>前
-						  <a class="image" href="/mail/<%= @batch_id%>"><%= m['title'] %></a>
+						  <a class="image" href="/mail/<%= batch_id%>"><%= m['title'] %></a>
 						<br>
 						<% end %>
 					<% end %>
