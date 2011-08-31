@@ -2,18 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rake', '0.8.7'
 gem 'rails', '3.1.0.rc6'
-
 gem 'SystemTimer'
-
 gem 'mysql2'
-
 gem 'json'
 gem 'devise'
-
+gem 'redis'
 # enumeration
 gem 'enumerate_it'
-
-gem 'redis'
 
 gem 'gravtastic'
 

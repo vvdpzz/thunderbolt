@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="span12 columns">
+		<div class="user-panel">
+			<div class="big-avatar">
+				<a class="image" href="/users/<%= @sender_id %>"><%= image_tag @sender_image %></a>
+			</div>
+			<div class="mail">
+			  <%=form_tag({:controller => 'mail', :action => 'reply'}) do %>
+				<br>
+			  	<%= text_area_tag :content, {}, :class => 'content' %>
+			    <%= hidden_field_tag "mail_id",@mail_id%>
+				<%= submit_tag '回复', :class => 'submit' %>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>

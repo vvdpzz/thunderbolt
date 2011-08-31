@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   
   has_many :followers, :class_name => "FollowedUser", :foreign_key => "user_id"
   has_many :following, :class_name => "FollowedUser", :foreign_key => "follower_id"
+  has_many :mails
   
   before_create :create_login
   
