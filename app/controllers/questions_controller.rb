@@ -26,6 +26,14 @@ class QuestionsController < ApplicationController
   def free
     @questions = Question.free
   end
+  
+  def watch
+    items = Watch.where(:user_id => current_user.id).collect{|item| MultiJson.decode(item.content)}
+    respond_to do |format|
+      format.html
+      format.json { render :json => {:items => items}}
+    end
+  end
 
   def new
     @question = Question.new

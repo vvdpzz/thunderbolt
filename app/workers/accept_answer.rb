@@ -1,5 +1,5 @@
-class NewAnswer
-  @queue = :new_answer
+class AcceptAnswer
+  @queue = :accept_answer
 
   def self.perform(question_id, answer_id)
     question = Question.find question_id

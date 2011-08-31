@@ -1,0 +1,72 @@
+<%= render 'tabs' %>
+<div class="row">
+	<div class="span12">
+		<div id="questions">	
+		</div>
+	</div>
+</div>
+<script id="entry-template" type="text/x-handlebars-template">
+{{#items}}
+	<div class="question" id="question_{{question_id}}">
+		<div class="title">
+			{{#question_link question_title question_id}}{{/question_link}}
+		</div>
+		<div class="user-row">
+			{{#user_link auser_realname auser_id}}{{/user_link}}
+			<span class="aboutme">{{auser_aboutme}}</span>
+		</div>
+		<div class="answer">
+			{{answer_content}}
+		</div>
+	</div>
+{{/items}}
+</script>
+
+<script>
+Handlebars.registerHelper('question_link', function(text, url) {
+  text = Handlebars.Utils.escapeExpression(text);
+  url  = Handlebars.Utils.escapeExpression(url);
+
+  var result = '<a href="/questions/' + url + '">' + text + '</a>';
+
+  return new Handlebars.SafeString(result);
+});
+
+Handlebars.registerHelper('user_link', function(text, url) {
+  text = Handlebars.Utils.escapeExpression(text);
+  url  = Handlebars.Utils.escapeExpression(url);
+
+  var result = '<a href="/users/' + url + '">' + text + '</a>';
+
+  return new Handlebars.SafeString(result);
+});
+
+$.getJSON('/watch.json', function(items){
+	var val = items.items,
+		len = val.length,
+		i = 0,
+		j = 0,
+		k = 0,
+		html = [];
+	while(i < len){
+		j = i;
+		k = 0;
+		while(val[j].question_id === val[i].question_id){
+			k++;
+			html = [];
+			if (k === 1){
+				html.push('<div class="question">');
+				html.push('<div class="title"><a href="/questions/' + val[j].question_id + '">'+ val[j].question_title + '</a></div>');
+				html.push('<div class="user-row">' + '<a href="/users' + val[j].auser_id + '">' + val[j].auser_realname + '</a></div>');
+				html.push('<div class="answer">' + val[j].answer_content + '</div>');
+			} else {
+				html.push('<div class="answer">' + val[j].answer_content + '</div>');
+			}
+			html.push('</div>');
+			$("#questions").append(html.join(''));
+			j++;
+		}
+		i = j;
+	}
+});
+</script>

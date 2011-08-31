@@ -75,6 +75,7 @@ class AnswersController < ApplicationController
           end
         end
       end
+      question.async_accept_answer(answer.id)
     end
     redirect_to question
   end

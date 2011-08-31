@@ -11,4 +11,5 @@
 //= require history.adapter.jquery.js
 //= require history.js
 //= require history.html4.js
+//= require handlebars
 //= require_tree .
