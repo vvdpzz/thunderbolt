@@ -75,7 +75,9 @@ class MailController < ApplicationController
   
   def inbox
     @mails = $redis.KEYS("mail:between.*.#{current_user.id}.*")
-    @batch_id = @mails.first.split(".")[3]
+    if @mails
+      @batch_id = @mails.first.split(".")[3]
+    end
     respond_to do |format|
       format.html
       format.json {render :json => {:mails => @mails}}

@@ -1,5 +1,9 @@
 Thunderbolt::Application.routes.draw do
   
+  get "comments/new"
+
+  get "comments/create"
+
   match '/mail/inbox' => 'mail#inbox', :via => 'get' #inbox
   match '/mail/to/:id' => 'mail#new', :via => 'get' #to write a new mail
   match '/mail/reply/to/:id' => 'mail#renew', :via => 'get' #to reply a new mail
